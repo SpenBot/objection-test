@@ -1,0 +1,339 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "User Management API",
+        "description": "User Management API for Crate users CRUD functionality.",
+        "license": {
+            "name": "The Buffalo Group",
+            "url": "https://gitlab.code.dicelab.net/deea-common/org/organization"
+        }
+    },
+    "host": "localhost:3007",
+    "schemes": [
+        "http"
+    ],
+
+
+
+    "paths": {
+
+      "/api/seeds": {
+
+          "get": {
+              "summary": "Seed Dummy Data",
+              "tags": [
+                  "Seed Data"
+              ],
+              "description": "Seed Dummy Data",
+              "responses": {
+                  "200": {
+                      "description": "Seed Dummy Data",
+                      "schema": {
+                          "$ref": "#/definitions/user"
+                      }
+                  }
+              }
+          }
+      },
+
+      "/api/users-roles": {
+
+          "get": {
+              "summary": "Get User Roles",
+              "tags": [
+                  "User-Roles"
+              ],
+              "description": "Get User Roles",
+              "responses": {
+                  "200": {
+                      "description": "Get User Roles",
+                      "schema": {
+                          "$ref": "#/definitions/user_role"
+                      }
+                  }
+              }
+          },
+
+          "post": {
+              "summary": "Add new user-role association",
+              "tags": [
+                  "User-Roles"
+              ],
+              "description": "Create a user-role association",
+              "parameters": [
+                  {
+                      "in": "body",
+                      "name": "body",
+                      "schema": {
+                          "$ref": "#/definitions/user_role"
+                      }
+                  }
+              ],
+              "responses": {
+                  "200": {
+                      "description": "Post one user",
+                      "schema": {
+                          "$ref": "#/definitions/user-role"
+                      }
+                  }
+              }
+          }
+
+      },
+
+
+        "/api/users": {
+
+
+            "get": {
+                "summary": "Get all users",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Get all users in a single JSON list",
+                "responses": {
+                    "200": {
+                        "description": "Retrieved all users",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                }
+            },
+
+            "post": {
+                "summary": "Add new user",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Create a user",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Post one user",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                }
+            }
+        },
+
+
+        "/api/users/{user_id}": {
+
+
+            "parameters": [
+                {
+                    "name": "user_id",
+                    "in": "path",
+                    "description": "Input user_id",
+                    "type": "string"
+                }
+            ],
+
+            "get": {
+                "summary": "Get one user by id",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Get Single User based on user_id",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieved single user",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                }
+            },
+
+            "put": {
+                "summary": "Update one user by id",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Update single user based on user_id",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object that needs to be added for database",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated single user",
+                        "schema": {
+                            "$ref": "#/defintions/user"
+                        }
+                    }
+                }
+            },
+
+            "delete": {
+                "summary": "Delete one user by id (HARD DELETE)",
+                "tags": [
+                    "Users"
+                ],
+                "description": "Delete single user based on user_id",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted single user",
+                        "schema": {
+                            "$ref": "#/definitions/user"
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+
+
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+    "definitions": {
+
+        "user": {
+            "properties": {
+                "id": {
+                    "type" : "string",
+                    "example": "7e575e7d-319f-42cd-92ff-cf935ff429d7"
+                },
+                "username": {
+                    "type" : "string",
+                    "example": "mrCoolGuy777"
+                },
+                "first_name": {
+                    "type" : "string",
+                    "example": "Luke"
+                },
+                "middle_name": {
+                    "type" : "string",
+                    "example": "Lars"
+                },
+                "last_name": {
+                    "type" : "string",
+                    "example": "Skywalker"
+                },
+                "command": {
+                    "type": "string",
+                    "example": "Organization-1"
+                },
+                "initial_login": {
+                    "type" : "string",
+                    "example": "08/09/2008 10:42:19"
+                },
+                "last_login": {
+                    "type" : "string",
+                    "example": "02/22/2015 18:10:51"
+                },
+                "authen_method": {
+                    "type": "string",
+                    "example": "password"
+                },
+                "status": {
+                    "type": "string",
+                    "example": "fullfilled"
+                },
+                "role": {
+                    "type": "string",
+                    "example": "admin"
+                },
+                "user_orgs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/organization"
+                    }
+                }
+            }
+        },
+
+        "organization": {
+            "properties": {
+                "id": {
+                    "type" : "string",
+                    "example": "f85d86cb-6d27-4c5a-9d09-756a7d7653fd"
+                },
+                "org_name": {
+                    "type" : "string",
+                    "example": "Organization-1"
+                },
+                "org_abbrv": {
+                    "type" : "string",
+                    "example": "ORG1"
+                }
+            }
+        },
+
+        "user_org": {
+            "properties": {
+                "id": {
+                    "type" : "string",
+                    "example": "f85d86cb-6d27-4c5a-9d09-756a7d7653fd"
+                },
+                "org_id": {
+                    "type" : "string",
+                    "example": "94e7cfd1-4c84-4a4d-beed-671fdf69ee15"
+                },
+                "user_id": {
+                    "type" : "string",
+                    "example": "1a762ba9-1c41-4038-9d66-0827f48a0acc"
+                }
+            }
+        },
+
+        "user_role": {
+            "properties": {
+                "id": {
+                    "type" : "string",
+                    "example": "f85d86cb-6d27-4c5a-9d09-756a7d7653fd"
+                },
+                "user_id": {
+                    "type" : "string",
+                    "example": "94e7cfd1-4c84-4a4d-beed-671fdf69ee15"
+                },
+                "orgs_roles_id": {
+                    "type" : "string",
+                    "example": "1a762ba9-1c41-4038-9d66-0827f48a0acc"
+                }
+            }
+        }
+
+
+    }
+}
