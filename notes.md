@@ -1,4 +1,44 @@
 
+http://vincit.github.io/objection.js/#fetch-queries
+
+::::::::::::::::::::::::::::::::::
+
+
+- asynch/await
+- app error
+- routes/controllers
+- eager-loading?
+
+- how to export connection as module?
+- required, is that just not null feilds?
+- how to define as unique?
+- how to define idColumn as UUID?
+
+- how to define associations?
+- how to return associated fields in the request?
+- how to bulk create?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+other video:
+https://www.youtube.com/watch?v=4nP6zFEvF_c
+
+
+:::::::::::::::::::::::::::::::::::
+https://github.com/johnazre/youtube-intro-to-knex/blob/master/db/knex.js
+
 https://github.com/Vincit/objection.js/issues/922
 
 

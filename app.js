@@ -73,22 +73,12 @@ app.listen(app.get('port'), () => {
 
 ///////////////// ROUTES ////////////////////////////////////
 
-app.get('/', (req, res) => res.send('Hello Spen!'))
+//// resource routes ////
+const studentRoutes = require('./routes/student-Routes')
 
-// //// resource routes ////
-// const userRoutes = require('./routes/userRoutes')
-// const orgsRoutes = require('./routes/orgsRoutes')
-// const rolesRoutes = require('./routes/rolesRoutes')
-// const usersRolesRoutes = require('./routes/usersRolesRoutes')
-// const orgsRolesRoutes = require('./routes/orgsRolesRoutes')
-//
-// app.use('/', userRoutes)
-// app.use('/', orgsRoutes)
-// app.use('/', rolesRoutes)
-// app.use('/', usersRolesRoutes)
-// app.use('/', orgsRolesRoutes)
-//
-//
+app.use('/', studentRoutes)
+
+
 // //// seed routes ////
 // const seedRoutes = require('./routes/seedRoutes')
 // app.use('/', seedRoutes)

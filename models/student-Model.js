@@ -18,28 +18,19 @@ class StudentModel extends Model {
     }
 
     static get jsonSchema() {
-
       return {
         type: "object",
-        required: ["name", "organization_id", "valid_start_dt"],
-
+        required: ["first_name", "last_name"],
         properties: {
-          name: { type: 'string', minLength:5, maxLength: 255 },
-          name_classification: { type: 'string' },
-          organization_id: { type: 'string', format: 'uuid'},
-          valid_start_dt: { type: 'string', format: 'date-time' },
-          valid_end_dt:  { type: ['string', 'null'], format: 'date-time' },
-          weight: { type: 'number' },
-          status: { type: 'string',  minLength :3, maxLength: 16 },
-          type: { type: 'string', minLength: 3, maxLength: 16 },
-          description: { type: ['string', 'null'] },
-          description_classification: { type: ['string', 'null'] }
+          first_name: { type: 'string' },
+          last_name: { type: 'string' },
+          grade: { type: 'number' },
+          email: { type: 'number' }
         }
       };
-
     }
 
 }
 
 
-module.exports = Priority;
+module.exports = StudentModel
