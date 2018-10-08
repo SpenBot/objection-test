@@ -14,10 +14,10 @@ http://vincit.github.io/objection.js/#fetch-queries
 - how to define as unique?
 - how to define idColumn as UUID?
 
-- how to define associations?
-- how to return associated fields in the request?
-- how to bulk create?
-
+- associations? (dependent, dependencies)
+- returning associated fields in the request?
+- bulk create?
+- default values?
 
 
 
